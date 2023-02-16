@@ -1,0 +1,31 @@
+{
+  "name": "Навигация Ереван Плаза",
+  "lang": "ru-ru",
+  "short_name": "Ереван Плаза",
+  "description": "Приложения для навигации по торговому центру Ереван Плаза",
+  "categories": ["shop", "mall"],
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "theme_color": "red",
+  "background_color": "#333333",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/images/icon-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/images/icon-180.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icon-270.png",
+      "sizes": "270x270"
+    }
+  ]
+}
