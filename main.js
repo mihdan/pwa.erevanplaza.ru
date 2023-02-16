@@ -1,5 +1,7 @@
 /**
  * @link https://www.electronjs.org/ru/docs/latest/tutorial/window-customization
+ * @link https://spdx.org/licenses/
+ * @link https://docs.npmjs.com/cli/v9/configuring-npm/package-json
  */
 const { app, BrowserWindow } = require('electron')
 

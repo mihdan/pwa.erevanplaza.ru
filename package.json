@@ -4,22 +4,36 @@
   "description": "Приложения для навигации по торговому центру Ереван Плаза",
   "main": "main.js",
   "author": "Mikhail Kobzarev",
-  "license": "ISC",
+  "license": "AGPL-1.0-only",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.5",
     "@electron-forge/maker-deb": "^6.0.5",
     "@electron-forge/maker-rpm": "^6.0.5",
     "@electron-forge/maker-squirrel": "^6.0.5",
     "@electron-forge/maker-zip": "^6.0.5",
-    "electron": "^23.0.0"
+    "electron": "^23.0.0",
+    "electron-builder": "^23.6.0"
   },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish"
+    "publish": "electron-forge publish",
+    "build-win": "electron-builder -w",
+    "build-mac": "electron-builder -m",
+    "build-linux": "electron-builder -l"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
+  },
+  "build": {
+   "productName": "ErevanPlaza",
+   "win": {
+      "target": ["nsis", "portable", "zip"],
+      "icon": "images/icon.ico"
+   },
+   "portable": {
+      "artifactName": "ErevanPlaza.exe"
+   }
   }
 }
