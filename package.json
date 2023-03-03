@@ -24,16 +24,24 @@
     "build-linux": "electron-builder -l"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-debug": "^3.2.0",
+    "electron-localshortcut": "^3.2.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "ip": "^2.0.0",
+    "v8-compile-cache": "^2.3.0"
   },
   "build": {
-   "productName": "ErevanPlaza",
-   "win": {
-      "target": ["nsis", "portable", "zip"],
+    "productName": "ErevanPlaza",
+    "win": {
+      "target": [
+        "nsis",
+        "portable",
+        "zip"
+      ],
       "icon": "images/icon.ico"
-   },
-   "portable": {
+    },
+    "portable": {
       "artifactName": "ErevanPlaza.exe"
-   }
+    }
   }
 }
