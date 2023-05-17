@@ -1,6 +1,6 @@
 {
   "name": "nav-erevanplaza-ru",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Приложения для навигации по торговому центру Ереван Плаза",
   "main": "main.js",
   "author": "Mikhail Kobzarev",
@@ -34,9 +34,7 @@
     "productName": "ErevanPlaza",
     "win": {
       "target": [
-        "nsis",
-        "portable",
-        "zip"
+        "portable"
       ],
       "icon": "images/icon.ico"
     },

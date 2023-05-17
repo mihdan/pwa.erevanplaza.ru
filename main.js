@@ -13,8 +13,8 @@
  * @link https://nodejs.dev/en/learn/reading-files-with-nodejs/
  */
 const { app, BrowserWindow, shell, powerSaveBlocker } = require('electron')
-const ip = require('ip');
-const electronLocalshortcut = require('electron-localshortcut')
+//const ip = require('ip');
+//const electronLocalshortcut = require('electron-localshortcut')
 //const debug = require('electron-debug');
 require('v8-compile-cache');
 
@@ -36,12 +36,12 @@ try {
   config = JSON.parse( config );
 } catch ( err ) {
   config = defaults;
-}
+}//console.log(config);
 
 //debug();
 
 const URL = require('url').URL
-const API = 'http://nav.erevanplaza.ru';
+const API = 'https://nav.erevanplaza.ru';
 
 // Запретить запускать более одной копии приложения.
 if ( ! app.requestSingleInstanceLock() ) {
@@ -52,7 +52,7 @@ if ( ! app.requestSingleInstanceLock() ) {
 /**
  * Запретить переходить по внешним ссылкам.
  */
-app.on('web-contents-created', (event, contents) => {
+/*app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
     if ( parsedUrl.origin !== API ) {
@@ -63,7 +63,7 @@ app.on('web-contents-created', (event, contents) => {
   contents.setWindowOpenHandler(({ url }) => {
     return { action: 'deny' }
   })
-})
+})*/
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -77,31 +77,31 @@ function createWindow () {
     icon: __dirname + '/images/icon-270.png',
   })
 
-  win.loadURL( API + '/?pylon_ip=' + ip.address() + '&pylon_id=' + config.pylon_id );
+  win.loadURL( API + '/?pylon_id=' + config.pylon_id );
 
   win.once('ready-to-show', () => {
     win.show();
   })
 
   // Запретить выходить из полноэкранного режима.
-  win.on('leave-full-screen', () => {
-    win.setFullScreen(true);
-  })
+  //win.on('leave-full-screen', () => {
+  //  win.setFullScreen(true);
+  //})
 
   // Запертить жмакать ctrl+r
-  win.on('focus', (event) => {
-    electronLocalshortcut.register(
-        win,
-        ['CommandOrControl+R','CommandOrControl+Shift+R', 'F5'],
-        () => {
-          console.log('CommandOrControl+R');
-        }
-    )
-  })
+  //win.on('focus', (event) => {
+  //  electronLocalshortcut.register(
+  //      win,
+  //      ['CommandOrControl+R','CommandOrControl+Shift+R', 'F5'],
+  //      () => {
+  //        console.log('CommandOrControl+R');
+  //      }
+  //  )
+  //})
 
-  win.on('blur', (event) => {
-    electronLocalshortcut.unregisterAll(win)
-  })
+  //win.on('blur', (event) => {
+  //  electronLocalshortcut.unregisterAll(win)
+  //})
 }
 
 app.whenReady().then(() => {
